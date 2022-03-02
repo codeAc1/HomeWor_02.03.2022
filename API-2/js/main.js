@@ -95,7 +95,7 @@ function AddBasketBtn()
     for(let addBasket of addBasketAll){
         addBasket.addEventListener("click",function(e){
             e.preventDefault();
-            
+            let basket=JSON.parse(localStorage.getItem("basket"));
             let name=this.parentElement.firstElementChild.innerText
             let src=this.parentElement.previousElementSibling.firstElementChild.getAttribute("src");
             let data_id=this.parentElement.parentElement.getAttribute("data-id");
@@ -117,7 +117,7 @@ function AddBasketBtn()
             else{
                 existingPro.Count+=1;
             }
-
+            localStorage.setItem("basket",JSON.stringify(basket));
         })
     }
 }
