@@ -123,5 +123,12 @@ function AddBasketBtn()
 }
 
 
+function CountBasket(){
+    let basket=JSON.parse(localStorage.getItem("basket"));
+    
+    let count=basket.reduce((total,p)=>total+p.Count,0);
+    document.getElementById("ProCount").innerText=count;
+}
 
+CountBasket();
 
