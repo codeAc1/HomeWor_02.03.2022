@@ -127,7 +127,8 @@ function AddBasketBtn()
 function CountBasket(){
     let basket=JSON.parse(localStorage.getItem("basket"));
     
-    let count=basket.reduce((total,p)=>total+p.Count,0);
+    //let count=basket.reduce((total,p)=>total+p.Count,0); //butun mehsullari sayacaq
+    let count=basket.length                                //mehsul id sine gore sayacaq
     document.getElementById("ProCount").innerText=count;
 }
 
