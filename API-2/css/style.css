@@ -78,4 +78,10 @@
 .table .ImgClass img {
   width: 100%;
 }
+
+#BasketList .BasketListItems {
+  background-color: red;
+  width: 100%;
+  height: 400px;
+}
 /*# sourceMappingURL=style.css.map */

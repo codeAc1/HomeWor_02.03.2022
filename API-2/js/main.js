@@ -106,7 +106,7 @@ function AddBasketBtn() {
             }
             localStorage.setItem("basket", JSON.stringify(basket));
             CountBasket();
-            
+
         })
     }
 }
@@ -118,4 +118,23 @@ function CountBasket() {
     document.getElementById("ProCountItem").innerText = countPro;
 }
 CountBasket();
+
+function BasketMenu() {
+    let BasketBtn = document.querySelector("#BasketBtn")
+    let ProductList = document.querySelector("#ProductList")
+    let Basket_Menu=document.querySelector("#BasketList")
+    BasketBtn.addEventListener("click", function () {
+        
+
+        if (ProductList.children.length > 0) {
+            Basket_Menu.classList.toggle("d-none")
+            ProductList.classList.toggle("col-lg-8");
+            for (let product of ProductList.children) {
+                product.classList.toggle("col-lg-4")
+            }
+        }
+
+    })
+}
+BasketMenu();
 
