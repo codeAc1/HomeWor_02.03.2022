@@ -1,127 +1,121 @@
-let btn=document.querySelector("#btn_add");
-let allPost=document.querySelector(".allPost");
+let btn = document.querySelector("#btn_add");
+let allPost = document.querySelector(".allPost");
 let dataNum = 0;
-btn.onclick=function(){
+btn.onclick = function () {
 
-     let http=new XMLHttpRequest();
-     
-     http.onreadystatechange=function()
-     {
-         if(this.readyState==4 && this.status==200)
-         {
-             
-             let response=JSON.parse(this.responseText);
-             for(let post of response)
-             {
-                 dataNum++;
-                let col=document.createElement("div");
-                col.classList.add("col-lg-3","box","col-12","col-md-6");
+    let http = new XMLHttpRequest();
 
-                let card =document.createElement("div");
+    http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            let response = JSON.parse(this.responseText);
+            for (let post of response) {
+                dataNum++;
+                let col = document.createElement("div");
+                col.classList.add("col-lg-3", "box", "col-12", "col-md-6");
+
+                let card = document.createElement("div");
                 card.classList.add("card");
-                card.setAttribute("data-id",dataNum)
+                card.setAttribute("data-id", dataNum)
 
-                let card_h=document.createElement("div");
+                let card_h = document.createElement("div");
                 card_h.classList.add("card-header")
 
-                let image=document.createElement("img");
-                image.setAttribute('src',post.image);
+                let image = document.createElement("img");
+                image.setAttribute('src', post.image);
                 image.classList.add("card-img-top");
 
-                let cardBody=document.createElement("div");
+                let cardBody = document.createElement("div");
                 cardBody.classList.add("card-body");
 
-                let cardTitle=document.createElement("h5");
+                let cardTitle = document.createElement("h5");
                 cardTitle.classList.add("card-title");
-                cardTitle.innerText=post.title;
+                cardTitle.innerText = post.title;
 
-                let desc=document.createElement("p");
+                let desc = document.createElement("p");
                 desc.classList.add("card-text");
-                desc.innerText="Price"+" "+"$"+post.price;
+                desc.innerText = "Price" + " " + "$" + post.price;
 
 
-                let btn1=document.createElement("button");
-                btn1.classList.add("btn","btn-primary");
-                btn1.innerText="Watch"
+                let btn1 = document.createElement("button");
+                btn1.classList.add("btn", "btn-primary");
+                btn1.innerText = "Watch"
 
-                let btn2=document.createElement("button");
-                btn2.classList.add("btn","btn-success");
-                btn2.innerText="Add To Card"
+                let btn2 = document.createElement("button");
+                btn2.classList.add("btn", "btn-success");
+                btn2.innerText = "Add To Card"
 
-                cardBody.append(cardTitle,desc,btn1,btn2);
+                cardBody.append(cardTitle, desc, btn1, btn2);
                 card_h.append(image)
-                card.append(card_h,cardBody);
+                card.append(card_h, cardBody);
                 col.append(card);
                 allPost.append(col);
-                
-                
-             }
-             
-         }
-         Trim();
-         AddBasketBtn();
-     }
-     http.open("GET","json/products.json");
-     http.send();
-     
+
+
+            }
+
+        }
+        Trim();
+        AddBasketBtn();
+    }
+    http.open("GET", "json/products.json");
+    http.send();
+
 }
 
-function Trim(){
-    let str=document.querySelectorAll(".box .card .card-body .card-title")
-    for(elem of str)
-    {
+function Trim() {
+    let str = document.querySelectorAll(".box .card .card-body .card-title")
+    for (elem of str) {
         let str = elem.innerText;
-        if(str.length>18){
-            elem.innerText=str.substring(0,18)+"..."
+        if (str.length > 18) {
+            elem.innerText = str.substring(0, 18) + "..."
         }
-        else{
-            elem.innerText=str
+        else {
+            elem.innerText = str
         }
     }
 }
-if(localStorage.getItem("basket")==null)
-{
-    localStorage.setItem("basket",JSON.stringify([]));
+if (localStorage.getItem("basket") == null) {
+    localStorage.setItem("basket", JSON.stringify([]));
 }
-function AddBasketBtn()
-{
-    let addBasketAll=document.querySelectorAll(".card-body .btn-success");
-    for(let addBasket of addBasketAll){
-        addBasket.addEventListener("click",function(e){
+function AddBasketBtn() {
+    let addBasketAll = document.querySelectorAll(".card-body .btn-success");
+    for (let addBasket of addBasketAll) {
+        addBasket.addEventListener("click", function (e) {
             e.preventDefault();
-            let basket=JSON.parse(localStorage.getItem("basket"));
-            let name=this.parentElement.firstElementChild.innerText
-            let src=this.parentElement.previousElementSibling.firstElementChild.getAttribute("src");
-            let data_id=this.parentElement.parentElement.getAttribute("data-id");
-            let price=this.parentElement.firstElementChild.nextElementSibling.innerHTML;
-            let priceN=price.substring(7,price.length)
-            let priceNum=Number(priceN)
-            let existingPro=basket.find(p=>p.Id==data_id);
-            if(existingPro==undefined)
-            {
+            let basket = JSON.parse(localStorage.getItem("basket"));
+            let name = this.parentElement.firstElementChild.innerText
+            let src = this.parentElement.previousElementSibling.firstElementChild.getAttribute("src");
+            let data_id = this.parentElement.parentElement.getAttribute("data-id");
+            let price = this.parentElement.firstElementChild.nextElementSibling.innerHTML;
+            let priceN = price.substring(7, price.length)
+            let priceNum = Number(priceN)
+            let existingPro = basket.find(p => p.Id == data_id);
+            if (existingPro == undefined) {
                 basket.push(
-                    {   
-                        Id:data_id,
-                        Name:name,
-                        Src:src,
-                        Price:priceNum,
-                        Count:1
+                    {
+                        Id: data_id,
+                        Name: name,
+                        Src: src,
+                        Price: priceNum,
+                        Count: 1
                     })
             }
-            else{
-                existingPro.Count+=1;
+            else {
+                existingPro.Count += 1;
             }
-            localStorage.setItem("basket",JSON.stringify(basket));
+            localStorage.setItem("basket", JSON.stringify(basket));
             CountBasket();
+            
         })
     }
 }
-function CountBasket(){
-    let basket=JSON.parse(localStorage.getItem("basket"));
-    //let count=basket.reduce((total,p)=>total+p.Count,0); //butun mehsullari sayacaq
-    let count=basket.length                                //mehsul id sine gore sayacaq
-    document.getElementById("ProCount").innerText=count;
+function CountBasket() {
+    let basket = JSON.parse(localStorage.getItem("basket"));
+    let countPro = basket.reduce((total, p) => total + p.Count, 0);
+    let countItem = basket.length
+    document.getElementById("ProCount").innerText = countItem;
+    document.getElementById("ProCountItem").innerText = countPro;
 }
-
 CountBasket();
 

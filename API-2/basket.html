@@ -14,7 +14,7 @@
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
             crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css">
-        <title>Document</title>
+        <title>Card</title>
     </head>
     <body >
         
@@ -33,7 +33,7 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#">
                             <i class="fas fa-lg fa-shopping-basket"></i>
-                            <sup id="ProCount">0</sup>
+                            <sup id="ProCount" style="font-size: 1rem ;color: white;">0</sup> <sup>( <span id="ProCountItem">0</span> )</sup>
                         </a>
                     </li>
                 </ul>
@@ -50,8 +50,9 @@
                             <th scope="col">#</th>
                             <th scope="col">Image</th>
                             <th scope="col">Product Name</th>
-                            <th scope="col">Price</th>
                             <th scope="col">Count</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Amount</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,6 +64,6 @@
         
         
     </body>
+    <script src="js/basket.js"></script>
     
-    <script src="js/main.js"></script>
 </html>
