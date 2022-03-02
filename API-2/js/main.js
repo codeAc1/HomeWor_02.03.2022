@@ -64,11 +64,7 @@ btn.onclick=function(){
      http.open("GET","json/products.json");
      http.send();
      
-
-     
-
 }
-
 
 function Trim(){
     let str=document.querySelectorAll(".box .card .card-body .card-title")
@@ -83,12 +79,10 @@ function Trim(){
         }
     }
 }
-
 if(localStorage.getItem("basket")==null)
 {
     localStorage.setItem("basket",JSON.stringify([]));
 }
-
 function AddBasketBtn()
 {
     let addBasketAll=document.querySelectorAll(".card-body .btn-success");
@@ -122,11 +116,8 @@ function AddBasketBtn()
         })
     }
 }
-
-
 function CountBasket(){
     let basket=JSON.parse(localStorage.getItem("basket"));
-    
     //let count=basket.reduce((total,p)=>total+p.Count,0); //butun mehsullari sayacaq
     let count=basket.length                                //mehsul id sine gore sayacaq
     document.getElementById("ProCount").innerText=count;

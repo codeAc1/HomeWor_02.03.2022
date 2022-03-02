@@ -9,8 +9,6 @@
   max-height: 400px;
   max-height: 400px;
   margin-bottom: 1rem;
-  -webkit-box-shadow: 0px 5px 9px rgb(221 221 221 / 53%);
-          box-shadow: 0px 5px 9px rgb(221 221 221 / 53%);
   -webkit-transition: .3s;
   transition: .3s;
   overflow: hidden;
@@ -56,8 +54,6 @@
 
 .card .card-body .btn-success {
   margin-left: 2rem;
-  -webkit-box-shadow:  0px 5px 9px rgb(221 221 221 / 53%);
-          box-shadow: 0px 5px 9px rgb(221 221 221 / 53%);
 }
 
 .red {
