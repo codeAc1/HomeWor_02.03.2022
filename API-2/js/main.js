@@ -118,6 +118,7 @@ function AddBasketBtn()
                 existingPro.Count+=1;
             }
             localStorage.setItem("basket",JSON.stringify(basket));
+            CountBasket();
         })
     }
 }
