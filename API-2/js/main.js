@@ -61,7 +61,7 @@ btn.onclick=function(){
          Trim();
          AddBasketBtn();
      }
-     http.open("GET","./products.json");
+     http.open("GET","json/products.json");
      http.send();
      
 
