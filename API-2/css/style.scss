@@ -36,20 +36,26 @@
     
     .card-body{
         overflow: hidden;
+        display: flex;
+        flex-wrap: wrap;
         
 
         p{
-           font-size: 2rem;
+           width: 50%;
+           font-size: 1rem;
            color: rgb(139, 0, 0);
            border-radius: 10px;
-           text-align: center;
+           text-align: left;
            text-shadow: 1rem;
         }
+        h5{
+            width: 100%;
+        }
 
-        .btn-success{
-            margin-left: 2rem;
+        .btn{
+            width: 100%;
+            margin-bottom: 10px;
             
-
         }
     }
     
