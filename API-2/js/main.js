@@ -2,6 +2,8 @@ window.onload = function () {
     btn.click()
 };
 
+
+
 let btn = document.querySelector("#btn_add");
 let allPost = document.querySelector(".allPost");
 let dataNum = 0;
@@ -111,6 +113,13 @@ function AddBasketBtn() {
             }
             localStorage.setItem("basket", JSON.stringify(basket));
             CountBasket();
+            let Basket_Menu = document.querySelector("#Dinamic")
+            Basket_Menu.innerHTML=""
+            BasketDiv();
+            
+            
+           
+            //this.location.reload();
 
 
         })
@@ -126,9 +135,19 @@ function CountBasket() {
 CountBasket();
 
 function BasketMenu() {
+    
     let BasketBtn = document.querySelector("#BasketBtn")
     let ProductList = document.querySelector("#ProductList")
     let Basket_Menu = document.querySelector("#BasketList")
+    let products = JSON.parse(localStorage.getItem("basket"));
+    let orderEmp = document.querySelector("#OrderEmp")
+
+    if (products.length > 0) {
+        orderEmp.classList.add("d-none")
+    }
+    else {
+        orderEmp.classList.remove("d-none")
+    }
     BasketBtn.addEventListener("click", function () {
 
 
@@ -144,10 +163,12 @@ function BasketMenu() {
         }
 
     })
+    
 }
 BasketMenu();
 
 function BasketDiv() {
+
 
     let products = JSON.parse(localStorage.getItem("basket"));
     let count = 1;
@@ -191,11 +212,11 @@ function BasketDiv() {
         count.append(countText)
 
         let priceText = document.createElement("h5")
-        priceText.innerText = product.Price;
+        priceText.innerText = product.Price + "$";
         price.append(priceText)
 
         let amountText = document.createElement("h5")
-        amountText.innerText = product.Count * product.Price;
+        amountText.innerText = (product.Count * product.Price) + "$";
         amount.append(amountText)
 
         let delbtn = document.createElement("button")
@@ -204,9 +225,11 @@ function BasketDiv() {
 
         item.append(image, name, count, price, amount, del);
         document.querySelector("#Dinamic").append(item)
+
+
     }
 
-
+    
 }
 
 BasketDiv();
