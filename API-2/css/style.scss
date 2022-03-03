@@ -80,10 +80,11 @@
     
     .BasketListItems{
         background-color: rgb(126, 124, 124);
-        width: 560px;
+        width: 100%;
         height: auto;
         border-radius: 1rem;
         padding-bottom: 1rem;
+        padding-top: 1px;
         
         .dinamic{
 
@@ -91,12 +92,14 @@
             background-color: rgb(255, 255, 255);
             margin-top: 1rem;
             border-radius: 20px;
+            overflow: hidden;
             
 
             .image{
 
                 img{
                     width: 100%;
+                    
                 }
             }
             h5{

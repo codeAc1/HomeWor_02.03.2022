@@ -83,16 +83,18 @@
 
 #BasketList .BasketListItems {
   background-color: #7e7c7c;
-  width: 560px;
+  width: 100%;
   height: auto;
   border-radius: 1rem;
   padding-bottom: 1rem;
+  padding-top: 1px;
 }
 
 #BasketList .BasketListItems .dinamic .item {
   background-color: white;
   margin-top: 1rem;
   border-radius: 20px;
+  overflow: hidden;
 }
 
 #BasketList .BasketListItems .dinamic .item .image img {
