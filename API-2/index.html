@@ -39,7 +39,10 @@
                         <li class="nav-item active">
                             <a id="BasketBtn" class="nav-link" href="#">
                                 <i class="fas fa-lg fa-shopping-basket"></i>
-                                <sup id="ProCount" style="font-size: 1rem ;color: white;">0</sup> <sup>( <span id="ProCountItem">0</span> )</sup>
+                                <sup id="ProCount" style="font-size: 1rem ;color: white;">0</sup>
+                                <sup>(
+                                    <span id="ProCountItem">0</span>
+                                    )</sup>
                             </a>
                         </li>
                     </ul>
@@ -53,15 +56,64 @@
                     <div>
                         <button id="btn_add" class="btn btn-secondary btn-lg">Show All Products</button>
                     </div>
-                    
+
                 </div>
                 <div class="row justify-content-end">
-                    <div id="ProductList" class=" row mt-5 justify-content-between align-items-center  allPost">
-
-                    </div>
-                    <div id="BasketList" class="d-none col-lg-4 mt-5">
+                    <div
+                        id="ProductList"
+                        class=" row mt-5 justify-content-between align-items-center  allPost"></div>
+                    <div id="BasketList" class="  col-lg-4 mt-5">
                         <div class="BasketListItems">
-                            
+                            <div class="container ">
+                                <div class="item row align-items-center static">
+                                    <div class="image col-lg-3">
+                                        <h5>Image</h5>
+                                    </div>
+                                    <div class="name col-lg-2">
+                                        <h5>Name</h5>
+                                    </div>
+                                    <div class="count col-lg-2">
+                                        <h5>Count</h5>
+                                    </div>
+                                    <div class="price col-lg-2">
+                                        <h5>Price</h5>
+                                    </div>
+                                    <div class="amount col-lg-2">
+                                        <h5>Amount</h5>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row dinamic">
+                                    <div id="Dinamic" class="container">
+                                        
+                                        <div class="item row align-items-center">
+                                            <div class="image col-lg-3">
+                                                <img src="/API-2/img/iphone13.png" alt="">
+                                            </div>
+                                            <div class="name col-lg-2">
+                                                <h5>iphone13</h5>
+                                            </div>
+                                            <div class="count col-lg-2">
+                                                <h5>3</h5>
+                                            </div>
+                                            <div class="price col-lg-2">
+                                                <h5>2560</h5>
+                                            </div>
+                                            <div class="amount col-lg-2">
+                                                <h5>6000</h5>
+                                            </div>
+                                            <div class="delete col-lg-1">
+                                                <button>X</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+
+                                </div>
+
+                            </div>
+
                         </div>
 
                     </div>
@@ -70,6 +122,6 @@
         </section>
 
     </body>
-    
+
     <script src="js/main.js"></script>
 </html>

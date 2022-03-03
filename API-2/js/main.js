@@ -124,17 +124,107 @@ function BasketMenu() {
     let ProductList = document.querySelector("#ProductList")
     let Basket_Menu=document.querySelector("#BasketList")
     BasketBtn.addEventListener("click", function () {
-        
+        Basket_Menu.classList.toggle("d-none")
 
         if (ProductList.children.length > 0) {
-            Basket_Menu.classList.toggle("d-none")
+            
             ProductList.classList.toggle("col-lg-8");
             for (let product of ProductList.children) {
-                product.classList.toggle("col-lg-4")
+                product.classList.toggle("col-lg-3")
             }
         }
 
     })
 }
 BasketMenu();
+
+let products=JSON.parse(localStorage.getItem("basket"));
+let count=1;
+for(let product of products)
+{
+    //console.log(product)
+
+    let item=document.createElement("div");
+    item.classList.add("item","row","align-items-center");
+
+    let image=document.createElement("div");
+    image.classList.add("image","col-lg-3")
+
+    let name=document.createElement("div");
+    name.classList.add("name","col-lg-2")
+
+    let count=document.createElement("div");
+    count.classList.add("count","col-lg-2")
+
+    let price=document.createElement("div");
+    price.classList.add("price","col-lg-2");
+
+    let amount=document.createElement("div");
+    amount.classList.add("amount","col-lg-2");
+
+    let del=document.createElement("div");
+    del.classList.add("delete","col-lg-1");
+
+
+    let img=document.createElement("img");
+    img.setAttribute("src",product.Src);
+    image.append(img);
+
+    let nameText=document.createElement("h5")
+    nameText.innerText=product.Name;
+    name.append(nameText)
+
+    let countText=document.createElement("h5")
+    countText.innerText=product.Count;
+    count.append(countText)
+
+    let priceText=document.createElement("h5")
+    priceText.innerText=product.Price;
+    price.append(priceText)
+
+    let amountText=document.createElement("h5")
+    amountText.innerText=product.Count*product.Price;
+    amount.append(amountText)
+
+    let delbtn=document.createElement("button")
+    delbtn.innerText="X"
+    del.append(delbtn)
+
+    item.append(image,name,count,price,amount,del);
+    document.querySelector("#Dinamic").append(item)
+
+
+
+    
+
+    // let tdN=document.createElement("td");
+    // let tdImage=document.createElement("td");
+    // let tdName=document.createElement("td");
+    // let tdCount=document.createElement("td");
+    // let tdPrice=document.createElement("td");
+    // let tdAmount=document.createElement("td");
+
+    // tdN.innerText=count;
+    // count++;
+
+    // let img=document.createElement("img");
+    // img.setAttribute("src",product.Src);
+    // tdImage.append(img);
+    // tdImage.classList.add("ImgClass")
+
+
+    // tdName.innerText=product.Name;
+    // tdCount.innerText=product.Count;
+    // tdPrice.innerText=product.Price;
+    // tdAmount.innerText=product.Count*product.Price
+
+    // let tr=document.createElement("tr")
+
+    // tr.append(tdN,tdImage,tdName,tdCount,tdPrice,tdAmount)
+
+    // document.querySelector(".table").lastElementChild.append(tr)
+
+
+
+}
 

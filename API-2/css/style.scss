@@ -71,14 +71,68 @@
 
         img{
             width: 100%;
+            object-fit: contain;
+            
         }
     }
 }
 #BasketList{
     
     .BasketListItems{
-        background-color: red;
-        width: 100%;
-        height: 400px;
+        background-color: rgb(126, 124, 124);
+        width: 560px;
+        height: auto;
+        border-radius: 1rem;
+        padding-bottom: 1rem;
+        
+        .dinamic{
+
+            .item{
+            background-color: rgb(255, 255, 255);
+            margin-top: 1rem;
+            border-radius: 20px;
+            
+
+            .image{
+
+                img{
+                    width: 100%;
+                }
+            }
+            h5{
+                font-size:1rem ;
+                text-align: center;
+                
+                border-radius: 5px;
+            }
+            .delete{
+                
+                button{
+                    background-color: red;
+                    color: white;
+                    padding: 6px 10px;
+                    margin: -10px;
+                    border-radius: 50%;
+                    border: none;
+                    font-size: 1rem;
+                }
+            }
+            
+            
+        }
+        }
+        .static{
+            margin-top: 1rem;
+            background-color: rgb(199, 185, 185);
+            border-radius: 10px;
+            
+            h5{
+                font-size: 1rem;
+                text-align: center;
+                padding-top: 0.5rem;
+            }
+        }
+        
+        
     }
 }

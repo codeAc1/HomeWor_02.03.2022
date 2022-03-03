@@ -77,11 +77,53 @@
 
 .table .ImgClass img {
   width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 #BasketList .BasketListItems {
-  background-color: red;
+  background-color: #7e7c7c;
+  width: 560px;
+  height: auto;
+  border-radius: 1rem;
+  padding-bottom: 1rem;
+}
+
+#BasketList .BasketListItems .dinamic .item {
+  background-color: white;
+  margin-top: 1rem;
+  border-radius: 20px;
+}
+
+#BasketList .BasketListItems .dinamic .item .image img {
   width: 100%;
-  height: 400px;
+}
+
+#BasketList .BasketListItems .dinamic .item h5 {
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 5px;
+}
+
+#BasketList .BasketListItems .dinamic .item .delete button {
+  background-color: red;
+  color: white;
+  padding: 6px 10px;
+  margin: -10px;
+  border-radius: 50%;
+  border: none;
+  font-size: 1rem;
+}
+
+#BasketList .BasketListItems .static {
+  margin-top: 1rem;
+  background-color: #c7b9b9;
+  border-radius: 10px;
+}
+
+#BasketList .BasketListItems .static h5 {
+  font-size: 1rem;
+  text-align: center;
+  padding-top: 0.5rem;
 }
 /*# sourceMappingURL=style.css.map */
