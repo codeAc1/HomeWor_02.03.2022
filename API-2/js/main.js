@@ -240,11 +240,16 @@ function BasketDiv() {
 
 BasketDiv();
 
-let delBtn=document.querySelector("#Dinamic .item").lastElementChild
+let delBtn=document.querySelectorAll("#Dinamic .item")
 
-    delBtn.addEventListener("click",function(){
-        alert("Vaxt Catmadi :(")
+for(let elem of delBtn)
+{
+    elem.lastElementChild.addEventListener("click",function(){
+        alert("vaxt catmadi")
     })
+}
+
+    
 
 
 
