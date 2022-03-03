@@ -113,6 +113,12 @@ function AddBasketBtn() {
             }
             localStorage.setItem("basket", JSON.stringify(basket));
             CountBasket();
+            
+            
+
+            
+            
+
             let Basket_Menu = document.querySelector("#Dinamic")
             Basket_Menu.innerHTML=""
             BasketDiv();
@@ -233,5 +239,12 @@ function BasketDiv() {
 }
 
 BasketDiv();
+
+let delBtn=document.querySelector("#Dinamic .item").lastElementChild
+
+    delBtn.addEventListener("click",function(){
+        alert("Vaxt Catmadi :(")
+    })
+
 
 
